@@ -28,8 +28,6 @@ class Board
   end
 
 
-
-
   def move_piece(start_pos, end_pos)
     old_row, old_col = start_pos[0], start_pos[1]
     raise "You're trying to move nothing!" if self[[old_row, old_col]] == NullPiece.instance
@@ -42,11 +40,16 @@ class Board
 
   def []=(pos, value) # [[1, 2]] = value
     row, col = pos
-    self.grid[row][col] = value
+    self[row][col] = value
   end
 
   def [](pos)
     row, col = pos
-    self.grid[row][col]
+    self[row][col]
+  end
+
+  def valid_pos?(pos) #receiving :right
+    # debugger
+    (0..7) === pos[0] && (0..7) === pos[1]
   end
 end

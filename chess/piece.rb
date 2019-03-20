@@ -3,6 +3,14 @@ class Piece
   def initialize
 
   end
+
+  def to_s
+    if self.is_a?(NullPiece)
+      "   "
+    else 
+      " * "
+    end
+  end
 end
 
 class Rook < Piece
